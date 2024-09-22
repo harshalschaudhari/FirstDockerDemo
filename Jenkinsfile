@@ -32,7 +32,7 @@ pipeline {
                  echo "Deploy stage - "
                  // Below command for Single use
                  //bat 'docker run --name hc-nginxWeb -p 8093:80 -d hc-nginx:latest'
-                bat 'docker-compose -d -f docker-compose.yml up'
+                bat 'docker-compose -f ./docker-compose.yml up'
             }
         }
     }
