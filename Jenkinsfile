@@ -24,7 +24,8 @@ pipeline {
               echo "Login Stage - ${env.DOCKERHUB_CREDENTIALS_PSW}"    
               //bat 'docker login -u  ${env.DOCKERHUB_CREDENTIALS_USR} --password-stdin'
                //sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-              bat 'docker login -u ${env.DOCKERHUB_CREDENTIALS_USR} -p ${env.DOCKERHUB_CREDENTIALS_USR}'
+              //bat 'docker login -u ${env.DOCKERHUB_CREDENTIALS_USR} -p ${env.DOCKERHUB_CREDENTIALS_PSW}'
+              bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
           }
         }
         stage('Tag') {
