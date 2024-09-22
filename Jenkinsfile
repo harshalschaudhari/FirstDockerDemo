@@ -20,7 +20,8 @@ pipeline {
         }
           stage('Login') {
           steps {
-            bat 'docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+              echo "Login Stage - ${env.DOCKERHUB_CREDENTIALS_USR}"
+              bat 'docker login -u  ${env.DOCKERHUB_CREDENTIALS_USR} --password-stdin'
           }
         }
         stage('Tag') {
