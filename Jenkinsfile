@@ -30,7 +30,8 @@ pipeline {
         stage('Deploy') {
             steps {
                  echo "Deploy stage - "
-                 bat 'docker run --name hc-nginxWeb -p 8093:80 -d hc-nginx:latest'                
+                 // Below command for Single use
+                 //bat 'docker run --name hc-nginxWeb -p 8093:80 -d hc-nginx:latest'                
             }
         }
     }
