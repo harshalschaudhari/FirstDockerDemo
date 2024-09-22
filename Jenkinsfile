@@ -1,6 +1,9 @@
 pipeline {
     agent any
-
+ 
+    environment {
+        DOCKERHUB_CREDENTIALS = credentials('hc-docker-hub')
+    }
     stages {
         stage('Fetch') {
             steps {
@@ -14,7 +17,12 @@ pipeline {
                 bat 'docker build -t hc-nginx:latest .'
                 echo "BuildDockerImage Stage -"
             }
-        }        
+        }
+          stage('Login') {
+          steps {
+            bat 'docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+          }
+        }
         stage('Tag') {
             steps {
                 echo "The current build number running is: ${env.BUILD_NUMBER}"
@@ -25,6 +33,7 @@ pipeline {
                 //Docker Login
                 //Push Docker image file
                 echo "The current build number running is: ${env.BUILD_NUMBER}"
+                bat 'docker push hc-nginx:latest'
             }
         }
         stage('Deploy') {
