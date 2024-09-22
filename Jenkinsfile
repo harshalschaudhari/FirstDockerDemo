@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Fetch') {
             steps {
-                echo "The current build number is: ${env.BUILD_NUMBER}"
+                echo "Fetch Stage: The current build number is: ${env.BUILD_NUMBER}"
+                 git branch: 'main', url: 'https://github.com/harshalschaudhari/FirstDockerDemo.git'
             }
         }
         stage('BuildDockerImage') {
