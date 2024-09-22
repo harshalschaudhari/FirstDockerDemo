@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  nginxWeb:
+    image: hc-nginx:latest
+    container_name: hc-nginxWeb
+    ports:
+      - "8093:80"
