@@ -10,7 +10,8 @@ pipeline {
         }
         stage('BuildDockerImage') {
             steps {
-                dir
+                
+                 bat 'dir'
                 echo "BuildDockerImage Stage -"
             }
         }        
