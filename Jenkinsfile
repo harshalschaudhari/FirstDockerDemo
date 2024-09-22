@@ -10,7 +10,8 @@ pipeline {
         }
         stage('BuildDockerImage') {
             steps {
-                echo "The current build number running is: ${env.BUILD_NUMBER}"
+                dir
+                echo "BuildDockerImage Stage -"
             }
         }        
         stage('Tag') {
