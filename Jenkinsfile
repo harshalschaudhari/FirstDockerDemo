@@ -29,7 +29,8 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo "The current build number running is: ${env.BUILD_NUMBER}"
+                 echo "Deploy stage - "
+                 bat 'docker run --name hc-nginxWeb -p 8093:80 -d hc-nginx:latest'                
             }
         }
     }
