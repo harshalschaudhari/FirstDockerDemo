@@ -10,8 +10,8 @@ pipeline {
         }
         stage('BuildDockerImage') {
             steps {
-                
-                 bat 'dir'
+                bat 'dir'
+                bat 'docker build -f ./dockerFile -t hc-nginx:latest .'
                 echo "BuildDockerImage Stage -"
             }
         }        
